@@ -42,6 +42,18 @@ def event_detail(event_name):
     
 @app.route('/events/create')
 def create_event():
+    # if request.method == 'POST':
+    #     # Retrieve form data
+    #     title = request.form['title']
+    #     owner = request.form['owner']
+    #     date = request.form['date']
+    #     time = request.form['time']
+    #     location = request.form['location']
+    #     tags = request.form['tags']
+    #     description = request.form['description']
+    #     participants = request.form['participants']
+
+    #     return "Event Created Successfully!"
     return render_template('create_event.html')
 
 @app.route('/register_mentor')
