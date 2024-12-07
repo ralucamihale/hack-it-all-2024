@@ -5,6 +5,30 @@
     background-color: #f4f4f9;
     color: #333;
 } */
+ /* Create Event Button Container */
+.create-event-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Create Event Button */
+.create-event-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #28a745;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.create-event-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
 
 /* Events Container */
 .events-container {
