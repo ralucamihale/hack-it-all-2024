@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, render_template, request
 import webbrowser
 
 app = Flask(__name__)
@@ -50,20 +50,24 @@ def event_detail(event_name):
     else:
         return "Event not found", 404
     
-@app.route('/events/create')
+@app.route('/events/create', methods=['GET', 'POST'])
 def create_event():
-    # if request.method == 'POST':
-    #     # Retrieve form data
-    #     title = request.form['title']
-    #     owner = request.form['owner']
-    #     date = request.form['date']
-    #     time = request.form['time']
-    #     location = request.form['location']
-    #     tags = request.form['tags']
-    #     description = request.form['description']
-    #     participants = request.form['participants']
+    if request.method == 'POST':
+        # Get JSON data from the request
+        event_data = request.get_json()
 
-    #     return "Event Created Successfully!"
+        # Add the event data to the events_data list
+        new_event = {
+            "slug": event_data['title'].lower().replace(" ", "_"),
+            "title": event_data['title'],
+            "description": event_data['description'],
+        }
+        events_data.append(new_event)
+
+        # Respond with a success message
+        return jsonify({"message": "Event created successfully!"})
+
+    # Render the Create Event form
     return render_template('create_event.html')
 
 @app.route('/register_mentor')
