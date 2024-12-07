@@ -34,13 +34,13 @@ def logout():
 
 # Dummy event data
 events_data = [
-    {"slug": "event1", "title": "Hiking Adventure", "tags": "hiking,nature", "group": "visual_impairment", "hobby": "hiking", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event2", "title": "Park Walk", "tags": "hiking,nature", "group": "physical_disability", "hobby": "nature", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event3", "title": "Museum Visit", "tags": "hiking,nature", "group": "immigrant", "hobby": "all", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event4", "title": "Brasov Trip", "tags": "hiking,nature", "group": "low_income", "hobby": "travelling", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event5", "title": "Lan Party", "tags": "hiking,nature", "group": "all", "hobby": "all", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event6", "title": "Music Festival", "tags": "hiking,nature", "group": "all", "hobby": "music", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
-    {"slug": "event7", "title": "Tennis Competition", "tags": "hiking,nature", "group": "all", "hobby": "sport", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
+    {"slug": "event1", "title": "Hiking Adventure", "tags": "hiking,nature", "group": "visual_impairment", "hobby": "hiking", "picture": "hike.jpg"},
+    {"slug": "event2", "title": "Park Walk", "tags": "hiking,nature", "group": "physical_disability", "hobby": "nature", "picture": "park.jpg"},
+    {"slug": "event3", "title": "Museum Visit", "tags": "hiking,nature", "group": "immigrant", "hobby": "all", "picture": "museum.jpg"},
+    {"slug": "event4", "title": "Brasov Trip", "tags": "hiking,nature", "group": "low_income", "hobby": "travelling", "picture": "brasov.jpg"},
+    {"slug": "event5", "title": "Lan Party", "tags": "hiking,nature", "group": "all", "hobby": "all", "picture": "lan.jpg"},
+    {"slug": "event6", "title": "Music Festival", "tags": "hiking,nature", "group": "all", "hobby": "music", "picture": "festival.jpg"},
+    {"slug": "event7", "title": "Tennis Competition", "tags": "hiking,nature", "group": "all", "hobby": "sport", "picture": "tennis.jpg"},
 
     # {"slug": "event2", "title": "Coding Bootcamp", "tags": "coding", "group": "minimal_salary", "hobby": "coding", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
     # {"slug": "event3", "title": "Sports Meetup", "tags": "sports", "group": "physical_disability", "hobby": "sports", "picture": "https://i.natgeofe.com/n/7afda449-1780-4938-8342-2abe32326c86/Montblanchike_4x3.jpg"},
