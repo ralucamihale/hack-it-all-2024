@@ -1,0 +1,22 @@
+.event-detail-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-image {
+    width: 300px;  /* Set the width to 300px */
+    height: 400px; /* Set the height to 400px */
+    object-fit: cover; /* Ensures the image is cropped to fit the dimensions without distortion */
+    display: block; /* Remove inline spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+.event-image-container {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}

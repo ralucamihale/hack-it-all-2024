@@ -1,72 +1,100 @@
-/* General Page Styles */
-/* body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-} */
- /* Create Event Button Container */
-.create-event-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Create Event Button */
-.create-event-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    background-color: #28a745;
-    border-radius: 8px;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-}
-
-.create-event-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
 /* Events Container */
 .events-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    display: flex; /* Make the container a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align content horizontally */
+    justify-content: center; /* Center content vertically */
+    gap: 20px; /* Add spacing between items */
+    margin: 0 auto; /* Center the container within the page */
+    padding: 20px; /* Add padding for spacing */
+    text-align: center; /* Center text content inside the container */
 }
 
-.events-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Event List */
 .events-list {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new rows */
+    gap: 20px; /* Add space between cards */
+    justify-content: center; /* Center-align the cards */
+}
+
+.event-card-link {
+    flex: 0 1 calc(33.33% - 10px); /* Increase card width by 10px */
+    display: block; /* Ensure the link behaves as a block container */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use the inherited text color */
+}
+
+.event-card {
+    display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: center;
     align-items: center;
-}
-
-/* Event Button */
-.event-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    background-color: #007bff;
-    border: none;
+    background-color: #f9f9f9;
+    padding: 20px; /* Slightly larger padding for a spacious feel */
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.event-button:hover {
-    background-color: #0056b3;
+.event-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    width: 100%;
+    max-width: 160px; /* Increase max width for larger images */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.event-title {
+    font-size: 18px; /* Slightly larger font for the title */
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.event-title:hover {
+    color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .event-card-link {
+        flex: 0 1 calc(50% - 20px); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card-link {
+        flex: 0 1 100%; /* 1 card per row on small screens */
+    }
+}
+
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff; /* White text */
+    background-color: #007bff; /* Blue background */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.button:active {
+    transform: scale(1); /* Reset scale when clicked */
+    background-color: #003f7f; /* Even darker blue when active */
 }
