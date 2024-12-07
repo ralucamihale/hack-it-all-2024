@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>REGISTER_MENTOR</title>\
+        <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +14,43 @@
             align-items: center;
             height: 100vh;
         }
+
+        /* Stilizarea barei de navigare */
+        nav {
+            background-color: #007bff;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pentru a crea spațiu sub bara de navigare */
+        .nav-placeholder {
+            height: 60px;
+        }
+
         .registration-form {
             background: #ffffff;
             padding: 20px;
@@ -75,11 +113,9 @@
             <li><a href="{{ url_for('main_page') }}">Home</a></li>
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li>
-            <li><a href="{{ url_for('login') }}">Log in</a></li>
-            <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
-            <li><a href="{{ url_for('register_user') }}">Register user</a></li>
         </ul>
     </nav>
+    <div class="nav-placeholder"></div>
     <div class="registration-form">
         <h2>Register as Mentor</h2>
         <form action="/submit_registration" method="post">
