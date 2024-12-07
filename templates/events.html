@@ -6,6 +6,38 @@
     <title>Events</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const groupDropdown = document.getElementById('groupDropdown');
+            const hobbyDropdown = document.getElementById('hobbyDropdown');
+            const eventsList = document.querySelectorAll('.event-card');
+    
+            function filterEvents() {
+                const selectedGroup = groupDropdown.value;
+                const selectedHobby = hobbyDropdown.value;
+    
+                eventsList.forEach(eventCard => {
+                    const eventGroup = eventCard.getAttribute('data-group');
+                    const eventHobby = eventCard.getAttribute('data-hobby');
+    
+                    // Check if event matches selected group and hobby
+                    const matchesGroup = selectedGroup === 'all' || eventGroup === selectedGroup;
+                    const matchesHobby = selectedHobby === 'all' || eventHobby === selectedHobby;
+    
+                    if (matchesGroup && matchesHobby) {
+                        eventCard.style.display = 'block';
+                    } else {
+                        eventCard.style.display = 'none';
+                    }
+                });
+            }
+    
+            // Add event listeners to dropdowns
+            groupDropdown.addEventListener('change', filterEvents);
+            hobbyDropdown.addEventListener('change', filterEvents);
+        });
+    </script>
+    
 </head>
 <body>
     <nav>
@@ -17,18 +49,46 @@
     </nav>
     <div class="events-container">
         <h1>Upcoming Events</h1>
-        <div class="create-event-container">
-            <a href="{{ url_for('create_event') }}" class="create-event-button">Create Event</a>
+    
+        <!-- Filter Dropdowns -->
+        <div class="filter-container">
+            <label for="groupDropdown">Select your group:</label>
+            <select id="groupDropdown">
+                <option value="all">All Groups</option>
+                <option value="visual_impairment">Visual Impairment</option>
+                <option value="physical_disability">Physical Disability</option>
+                <option value="immigrant">Immigrant</option>
+                <option value="low_income">Low Income</option>
+                <!-- <option value="volunteer">Volunteer</option> -->
+            </select>
+    
+            <label for="hobbyDropdown">Select your hobby:</label>
+            <select id="hobbyDropdown">
+                <option value="all">All Hobbies</option>
+                <option value="hiking">Hiking</option>
+                <option value="sport">Sport</option>
+                <option value="music">Music</option>
+                <option value="nature">Nature</option>
+                <!-- <option value="games">Games</option> -->
+                <option value="travelling">Travelling</option>
+            </select>
         </div>
-        <div class="events-list">
+    
+        <!-- Events List -->
+        <div class="events-list" id="eventsList">
             {% for event in events %}
-            <div class="event-card">
-                <a href="{{ url_for('event_detail', event_name=event['slug']) }}" class="event-button">
-                    {{ event['title'] }}
-                </a>
-            </div>
+            <a href="{{ url_for('event_detail', event_name=event['slug']) }}" class="event-link">
+                <div class="event-card" data-group="{{ event['group'] }}" data-hobby="{{ event['hobby'] }}">
+                    <img src="{{ event['picture'] }}" alt="{{ event['title'] }}" class="event-image">
+                    <p class="event-title">{{ event['title'] }}</p>
+                </div>
+            </a>
             {% endfor %}
         </div>
+    </div>
+    
+        
+        
     </div>
 </body>
 </html>
