@@ -1,0 +1,78 @@
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping if the screen size is small */
+}
+
+.profile-picture {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 4px solid #e0e0e0; /* Slightly lighter border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the profile picture */
+}
+
+.profile-info {
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #333;
+    font-weight: 600;
+}
+
+.profile-data {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.profile-data p {
+    margin: 12px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.profile-data span {
+    font-weight: bold;
+    color: #007bff; /* Blue color for labels */
+}
+
+.profile-data p:first-child {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-info {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .profile-picture {
+        margin-bottom: 20px;
+    }
+}

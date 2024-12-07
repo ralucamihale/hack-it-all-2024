@@ -1,3 +1,13 @@
+
+
+body{
+    background-image: url('https://egale.ca/wp-content/uploads/2023/07/pexels-fauxels-3184433-1920x1080-crop-scaled.webp');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 .container {
     margin: 20px;
     font-family: Arial, sans-serif;
