@@ -118,8 +118,8 @@
     </nav>
     
     <div class="registration-form">
-        <h2>Register as Mentor</h2>
-        <form id="mentorForm" method="post">
+        <h2>Register as User</h2>
+        <form id="userForm" method="post">
             <div class="username">
                 <label for="username">First and Last Name</label>
                 <input type="text" id="username" name="username" required>
@@ -134,11 +134,11 @@
             </div>
             <div class="occupation">
                 <label for="occupation">Occupation</label>
-                <input type="occupation" id="occupation" name="occupation" required>
+                <input type="text" id="occupation" name="occupation" required>
             </div>
             <div class="form-group">
-                <label for="role">Nationality:</label>
-                <select id="role" name="role" required>
+                <label for="nationality">Nationality:</label>
+                <select id="nationality" name="nationality" required>
                     <option value="">Selectează...</option>
                     <option value="romanian">Romanian</option>
                     <option value="ukrainian">Ukrainian</option>
@@ -148,8 +148,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="role">County:</label>
-                <select id="role" name="role" required>
+                <label for="county">County:</label>
+                <select id="county" name="county" required>
                     <option value="">Selectează...</option>
                     <option value="Alba">Alba</option>
                     <option value="Arad">Arad</option>
@@ -195,16 +195,9 @@
                     <option value="Vrancea">Vrancea</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="role">Interests:</label>
-                <select id="role" name="role" required>
-                    <option value="">Selectează...</option>
-                    <option value="cultural_exchanges">Cultural Exchanges</option>
-                    <option value="nature">Nature Retreats</option>
-                    <option value="sports">Sports</option>
-                    <option value="arts_and_crafts">Arts and Crafts</option>
-                    <option value="just_fun">Just Fun</option>
-                </select>
+            <div class="interests">
+                <label for="interests">Interests:</label>
+                <input type="text"  id="interests" name="interests" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -219,49 +212,6 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select the form
-            const mentorForm = document.getElementById('mentorForm');
-
-            // Add an event listener for form submission
-            mentorForm.addEventListener('submit', function (event) {
-                // Prevent the default form submission
-                event.preventDefault();
-
-                // Define the user role
-
-                // Collect other form data (optional, based on server needs)
-                const formData = new FormData(mentorForm);
-                const data = {
-                    role: "user",
-                    username: formData.get('username'),
-                    email: formData.get('email'),
-                    age: formData.get('age'),
-                    occupation: formData.get('occupation'),
-                    password: formData.get('password'),
-                };
-
-                // Send the data to the server
-                fetch('/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.text())
-                .then(data => {
-                    // Replace the page content with the server's response
-                    document.body.innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-    </script>
+     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
-
-ml>
