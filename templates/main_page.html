@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Idle game</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='buttons_main_page_style.css') }}">
+
     </head>
     <body>
 
@@ -19,6 +21,11 @@
 
         <div class="container">
             <h1>Main Page</h1>
+            <div class="button-container">
+                <a class="button" href="{{ url_for('login') }}">I already have an account</a>
+                <a class="button" href="{{ url_for('register_user') }}">I want to find a mentor</a>
+                <a class="button" href="{{ url_for('register_mentor') }}">I want to help people</a>
+            </div>
         </div>
 
         <script src="{{ url_for('static', filename='app.js') }}"></script>
