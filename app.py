@@ -10,13 +10,23 @@ events_data = [
     {"slug": "event3", "title": "Tech Meetup", "description": "Discuss the latest trends in technology."},
 ]
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main_page():
+    if request.method == 'POST':
+        data = request.get_json()
+        user_role = data.get('role', 'user')
+        # Process other form data here
+        print(f"User Role: {user_role}")  # Debugging
+        if user_role == "mentor":
+            return render_template('main_page_logged_in_mentor.html')
+        else:
+            return render_template('main_page.html')
     return render_template('main_page.html')
+    
 
-@app.route('/logged_in')
-def main_page_logged_in():
-    return render_template('main_page_logged_in.html')
+@app.route('/find_people')
+def find_people():
+    return render_template('find_people.html')
 
 @app.route('/profile')
 def profile():
