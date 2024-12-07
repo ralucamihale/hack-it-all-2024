@@ -1,111 +1,112 @@
+<!-- last_decoded.html -->
 <!DOCTYPE html>
 <html>
     <head>
+        
         <title>REGISTER_MENTOR</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        /* Stilizarea barei de navigare */
-        nav {
-            background-color: #007bff;
-            color: white;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0;
-        }
-        nav ul li a {
-            display: block;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            background-color: #0056b3;
-        }
-
-        /* Pentru a crea spațiu sub bara de navigare */
-        .nav-placeholder {
-            height: 60px;
-        }
-
-        .registration-form {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-        }
-        .registration-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
-        .form-footer {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #666;
-        }
-        .form-footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .form-footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f2f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+    
+            /* Stilizarea barei de navigare */
+            nav {
+                background-color: #007bff;
+                color: white;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0;
+            }
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            nav ul li a:hover {
+                background-color: #0056b3;
+            }
+    
+            /* Pentru a crea spațiu sub bara de navigare */
+            .nav-placeholder {
+                height: 60px;
+            }
+    
+            .registration-form {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                width: 100%;
+                max-width: 400px;
+            }
+            .registration-form h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .form-group button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .form-group button:hover {
+                background-color: #0056b3;
+            }
+            .form-footer {
+                text-align: center;
+                margin-top: 10px;
+                font-size: 14px;
+                color: #666;
+            }
+            .form-footer a {
+                color: #007bff;
+                text-decoration: none;
+            }
+            .form-footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
 </head>
 <body>
     <nav>
@@ -119,23 +120,85 @@
     <div class="registration-form">
         <h2>Register as Mentor</h2>
         <form id="mentorForm" method="post">
-            <div class="form-group">
+            <div class="username">
                 <label for="username">First and Last Name</label>
                 <input type="text" id="username" name="username" required>
             </div>
-            <div class="form-group">
+            <div class="email">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-group">
+            <div class="age">
                 <label for="age">Age</label>
-                <input type="number" id="age" name="age" required>
+                <input type="text" id="age" name="age" required>
             </div>
-            <div class="form-group">
+            <div class="occupation">
                 <label for="occupation">Occupation</label>
                 <input type="text" id="occupation" name="occupation" required>
             </div>
-            <!-- Nationality, County, Field Dropdowns -->
+            <div class="form-group">
+                <label for="nationality">Nationality:</label>
+                <select id="nationality" name="nationality" required>
+                    <option value="">Selectează...</option>
+                    <option value="romanian">Romanian</option>
+                    <option value="ukrainian">Ukrainian</option>
+                    <option value="bengali">Bengali</option>
+                    <option value="indian">Indian</option>
+                    <option value="syrian">Syrian</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="county">County:</label>
+                <select id="county" name="county" required>
+                    <option value="">Selectează...</option>
+                    <option value="Alba">Alba</option>
+                    <option value="Arad">Arad</option>
+                    <option value="Arges">Argeș</option>
+                    <option value="Bacau">Bacău</option>
+                    <option value="Bihor">Bihor</option>
+                    <option value="Bistrita-Nasaud">Bistrița-Năsăud</option>
+                    <option value="Botosani">Botoșani</option>
+                    <option value="Braila">Brăila</option>
+                    <option value="Brasov">Brașov</option>
+                    <option value="Bucuresti">București</option>
+                    <option value="Buzau">Buzău</option>
+                    <option value="Calarasi">Călărași</option>
+                    <option value="Caras-Severin">Caraș-Severin</option>
+                    <option value="Cluj">Cluj</option>
+                    <option value="Constanta">Constanța</option>
+                    <option value="Covasna">Covasna</option>
+                    <option value="Dambovita">Dâmbovița</option>
+                    <option value="Dolj">Dolj</option>
+                    <option value="Galati">Galați</option>
+                    <option value="Giurgiu">Giurgiu</option>
+                    <option value="Gorj">Gorj</option>
+                    <option value="Harghita">Harghita</option>
+                    <option value="Hunedoara">Hunedoara</option>
+                    <option value="Ialomita">Ialomița</option>
+                    <option value="Iasi">Iași</option>
+                    <option value="Ilfov">Ilfov</option>
+                    <option value="Maramures">Maramureș</option>
+                    <option value="Mehedinti">Mehedinți</option>
+                    <option value="Mures">Mureș</option>
+                    <option value="Neamt">Neamț</option>
+                    <option value="Olt">Olt</option>
+                    <option value="Prahova">Prahova</option>
+                    <option value="Salaj">Sălaj</option>
+                    <option value="Satu-Mare">Satu Mare</option>
+                    <option value="Sibiu">Sibiu</option>
+                    <option value="Suceava">Suceava</option>
+                    <option value="Teleorman">Teleorman</option>
+                    <option value="Timis">Timiș</option>
+                    <option value="Tulcea">Tulcea</option>
+                    <option value="Valcea">Vâlcea</option>
+                    <option value="Vaslui">Vaslui</option>
+                    <option value="Vrancea">Vrancea</option>
+                </select>
+            </div>
+            <div class="interests">
+                <label for="interests">Interests:</label>
+                <input type="text"  id="interests" name="interests" required>
+            </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
@@ -148,47 +211,7 @@
             <p>Ai deja un cont? <a href="/login">Autentifică-te</a></p>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select the form
-            const mentorForm = document.getElementById('mentorForm');
 
-            // Add an event listener for form submission
-            mentorForm.addEventListener('submit', function (event) {
-                // Prevent the default form submission
-                event.preventDefault();
-
-                // Define the user role
-
-                // Collect other form data (optional, based on server needs)
-                const formData = new FormData(mentorForm);
-                const data = {
-                    role: "mentor",
-                    username: formData.get('username'),
-                    email: formData.get('email'),
-                    age: formData.get('age'),
-                    occupation: formData.get('occupation'),
-                    password: formData.get('password'),
-                };
-
-                // Send the data to the server
-                fetch('/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.text())
-                .then(data => {
-                    // Replace the page content with the server's response
-                    document.body.innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-    </script>
+     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

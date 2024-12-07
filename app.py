@@ -26,27 +26,6 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-# Routes
-@app.route('/register_user', methods=['GET', 'POST'])
-def register_user():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-
-        # Hash the password
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-
-        # Save user to database
-        new_user = User(username=username, email=email, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
-
-        # Log the user in
-        session['user_id'] = new_user.id
-        return redirect(url_for('main_page_logged_in'))
-
-    return render_template('register_user.html')
 
 @app.route('/logout')
 def logout():
@@ -152,15 +131,15 @@ def create_event():
 def register_mentor():
     return render_template('register_mentor.html')
 
+@app.route('/register_user')
+def register_user():
+   return render_template('register_user.html')
+
+
+
 @app.route('/direct_messages')
 def direct_messages():
     return render_template('direct_messages.html')
-
-#@app.route('/register_user')
-#def register_user():
-#    return render_template('register_user.html')
-
-
 
 def open_browser():
     webbrowser.open("http://127.0.0.1:8080/")

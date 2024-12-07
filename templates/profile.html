@@ -17,21 +17,42 @@
         <div class="container">
             <div class="profile-picture" style="background-image: url('https://via.placeholder.com/150');"></div>
 
-            <!-- Name Section -->
-            <div class="profile-name">
+            <div class="profile-name" id="profile-name">
                 John Doe <!-- This will be dynamic, based on user data -->
             </div>
-
+            
             <!-- Profile Info Section -->
             <div class="profile-info">
-                <p><span>Status:</span> Mentor</p>
-                <p><span>Email:</span> user@yahoo.com</p>
-                <p><span>Age:</span> 28</p>
-                <p><span>Occupation:</span> Software Developer</p>
-                <p><span>Nationality:</span> Romanian</p>
-                <p><span>County:</span> Cluj</p>
-                <p><span>Interests:</span> Coding, Hiking, Traveling</p>
+                <p id="profile-status"><span>Status:</span> Mentor</p>
+                <p id="email"><span>Email:</span> user@yahoo.com</p>
+                <p id="age"><span>Age:</span> 28</p>
+                <p id="occupation"><span>Occupation:</span> Software Developer</p>
+                <p id="nationality"><span>Nationality:</span> Romanian</p>
+                <p id="county"><span>County:</span> Cluj</p>
+                <p id="interests"><span>Interests:</span> Coding, Hiking, Traveling</p>
             </div>
+            
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Preia datele salvate
+                const profileData = JSON.parse(localStorage.getItem('userProfile'));
+        
+                if (profileData) {
+                    // Actualizează câmpurile profilului
+                    document.getElementById('profile-name').textContent = profileData.username || 'John Doe';
+                    document.getElementById('profile-status').innerHTML = `<span>Status:</span> ${profileData.role || 'Unknown'}`;
+                    document.getElementById('email').innerHTML = `<span>Email:</span> ${profileData.email || 'N/A'}`;
+                    document.getElementById('age').innerHTML = `<span>Age:</span> ${profileData.age || 'N/A'}`;
+                    document.getElementById('occupation').innerHTML = `<span>Occupation:</span> ${profileData.occupation || 'N/A'}`;
+                    document.getElementById('nationality').innerHTML = `<span>Nationality:</span> ${profileData.nationality || 'N/A'}`;
+                    document.getElementById('county').innerHTML = `<span>County:</span> ${profileData.county || 'N/A'}`;
+                    document.getElementById('interests').innerHTML = `<span>Interests:</span> ${profileData.interests || 'N/A'}`;
+                } else {
+                    console.warn('No profile data found.');
+                }
+            });
+        </script>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
 </html>
