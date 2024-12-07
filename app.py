@@ -1,3 +1,4 @@
+from flask import Flask, jsonify, render_template, request
 import webbrowser
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
@@ -58,13 +59,23 @@ events_data = [
     {"slug": "event3", "title": "Tech Meetup", "description": "Discuss the latest trends in technology."},
 ]
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main_page():
+    if request.method == 'POST':
+        data = request.get_json()
+        user_role = data.get('role', 'user')
+        # Process other form data here
+        print(f"User Role: {user_role}")  # Debugging
+        if user_role == "mentor":
+            return render_template('main_page_logged_in_mentor.html')
+        else:
+            return render_template('main_page.html')
     return render_template('main_page.html')
+    
 
-@app.route('/logged_in')
-def main_page_logged_in():
-    return render_template('main_page_logged_in.html')
+@app.route('/find_people')
+def find_people():
+    return render_template('find_people.html')
 
 @app.route('/profile')
 def profile():
@@ -100,20 +111,24 @@ def event_detail(event_name):
     else:
         return "Event not found", 404
     
-@app.route('/events/create')
+@app.route('/events/create', methods=['GET', 'POST'])
 def create_event():
-    # if request.method == 'POST':
-    #     # Retrieve form data
-    #     title = request.form['title']
-    #     owner = request.form['owner']
-    #     date = request.form['date']
-    #     time = request.form['time']
-    #     location = request.form['location']
-    #     tags = request.form['tags']
-    #     description = request.form['description']
-    #     participants = request.form['participants']
+    if request.method == 'POST':
+        # Get JSON data from the request
+        event_data = request.get_json()
 
-    #     return "Event Created Successfully!"
+        # Add the event data to the events_data list
+        new_event = {
+            "slug": event_data['title'].lower().replace(" ", "_"),
+            "title": event_data['title'],
+            "description": event_data['description'],
+        }
+        events_data.append(new_event)
+
+        # Respond with a success message
+        return jsonify({"message": "Event created successfully!"})
+
+    # Render the Create Event form
     return render_template('create_event.html')
 
 @app.route('/register_mentor')
