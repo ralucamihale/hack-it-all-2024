@@ -1,9 +1,9 @@
-<!-- decode.html -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>PROFILE</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
     </head>
     <body>
         <nav>
@@ -11,15 +11,27 @@
                 <li><a href="{{ url_for('main_page') }}">Home</a></li>
                 <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 <li><a href="{{ url_for('events') }}">Events</a></li>
-                <li><a href="{{ url_for('login') }}">Log in</a></li>
-                <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
-                <li><a href="{{ url_for('register_user') }}">Register user</a></li>
             </ul>
         </nav>
+
         <div class="container">
-            <h1>PROFILE</h1>
-    
+            <div class="profile-picture" style="background-image: url('https://via.placeholder.com/150');"></div>
+
+            <!-- Name Section -->
+            <div class="profile-name">
+                John Doe <!-- This will be dynamic, based on user data -->
+            </div>
+
+            <!-- Profile Info Section -->
+            <div class="profile-info">
+                <p><span>Status:</span> Mentor</p>
+                <p><span>Email:</span> user@yahoo.com</p>
+                <p><span>Age:</span> 28</p>
+                <p><span>Occupation:</span> Software Developer</p>
+                <p><span>Nationality:</span> Romanian</p>
+                <p><span>County:</span> Cluj</p>
+                <p><span>Interests:</span> Coding, Hiking, Traveling</p>
+            </div>
         </div>
     </body>
 </html>
-

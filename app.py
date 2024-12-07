@@ -14,6 +14,10 @@ events_data = [
 def main_page():
     return render_template('main_page.html')
 
+@app.route('/logged_in')
+def main_page_logged_in():
+    return render_template('main_page_logged_in.html')
+
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
