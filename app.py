@@ -141,6 +141,10 @@ def create_event():
 def register_mentor():
     return render_template('register_mentor.html')
 
+@app.route('/direct_messages')
+def direct_messages():
+    return render_template('direct_messages.html')
+
 #@app.route('/register_user')
 #def register_user():
 #    return render_template('register_user.html')
