@@ -4,20 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('main_page') }}">Home</a></li>
-            <li><a href="{{ url_for('profile') }}">Profile</a></li>
-            <li><a href="{{ url_for('events') }}">Events</a></li>
-            <li><a href="{{ url_for('login') }}">Log in</a></li>
-            <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
-            <li><a href="{{ url_for('register_user') }}">Register user</a></li>
-        </ul>
-    </nav>
     <div class="login-container">
         <h1>Login</h1>
         <form method="POST" action="/login">
@@ -32,7 +21,7 @@
             <button type="submit" class="login-btn">Login</button>
         </form>
         <div class="login-footer">
-            <p>Don't have an account? <a href="/register_user">Register</a></p>
+            <p>Don't have an account? <a href="/register">Register</a></p>
         </div>
     </div>
 </body>

@@ -1,0 +1,48 @@
+/* General Page Styles */
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+} */
+
+/* Events Container */
+.events-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.events-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Event List */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Event Button */
+.event-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.event-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
