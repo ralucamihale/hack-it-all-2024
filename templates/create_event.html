@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>Create Event</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
 </head>
 <body>
     <nav>
@@ -18,20 +18,9 @@
             <li><a href="{{ url_for('register_user') }}">Register user</a></li>
         </ul>
     </nav>
-    <div class="events-container">
-        <h1>Upcoming Events</h1>
-        <div class="create-event-container">
-            <a href="{{ url_for('create_event') }}" class="create-event-button">Create Event</a>
-        </div>
-        <div class="events-list">
-            {% for event in events %}
-            <div class="event-card">
-                <a href="{{ url_for('event_detail', event_name=event['slug']) }}" class="event-button">
-                    {{ event['title'] }}
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+    <div class="create-event-container">
+        <h1>Create a New Event</h1>
+        <p>Form for creating events goes here!</p>
     </div>
 </body>
 </html>

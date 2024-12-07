@@ -35,6 +35,10 @@ def event_detail(event_name):
         return render_template('event_detail.html', event=event)
     else:
         return "Event not found", 404
+    
+@app.route('/events/create')
+def create_event():
+    return render_template('create_event.html')
 
 @app.route('/register_mentor')
 def register_mentor():
