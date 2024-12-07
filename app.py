@@ -68,6 +68,8 @@ def main_page():
         print(f"User Role: {user_role}")  # Debugging
         if user_role == "mentor":
             return render_template('main_page_logged_in_mentor.html')
+        elif user_role == "user":
+            return render_template('main_page_logged_in_user.html')
         else:
             return render_template('main_page.html')
     return render_template('main_page.html')
@@ -76,6 +78,10 @@ def main_page():
 @app.route('/find_people')
 def find_people():
     return render_template('find_people.html')
+
+@app.route('/find_mentor')
+def find_mentor():
+    return render_template('find_mentor.html')
 
 @app.route('/profile')
 def profile():

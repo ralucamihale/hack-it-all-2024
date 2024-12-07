@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>REGISTER_MENTOR</title>\
+        <title>REGISTER_MENTOR</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
     <style>
         body {
@@ -115,7 +115,7 @@
             <li><a href="{{ url_for('events') }}">Events</a></li>
         </ul>
     </nav>
-    <div class="nav-placeholder"></div>
+    
     <div class="registration-form">
         <h2>Register as Mentor</h2>
         <form id="mentorForm" method="post">
@@ -159,18 +159,16 @@
                 event.preventDefault();
 
                 // Define the user role
-                const userRole = "mentor";
 
                 // Collect other form data (optional, based on server needs)
                 const formData = new FormData(mentorForm);
                 const data = {
-                    role: userRole,
+                    role: "mentor",
                     username: formData.get('username'),
                     email: formData.get('email'),
                     age: formData.get('age'),
                     occupation: formData.get('occupation'),
                     password: formData.get('password'),
-                    // Add more fields as needed
                 };
 
                 // Send the data to the server
