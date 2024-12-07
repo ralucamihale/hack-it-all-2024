@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Main Page</title>
+        <title>Main Page Logged in</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='main_page.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main_page_logged_in.css') }}">
 
     </head>
     <body>
 
         <nav>
             <ul>
-                <li><a href="{{ url_for('main_page') }}">Home</a></li>
+                <li><a href="{{ url_for('main_page_logged_in') }}">Home</a></li>
                 <li><a href="{{ url_for('profile') }}">Profile</a></li>
                 <li><a href="{{ url_for('events') }}">Events</a></li>
             </ul>

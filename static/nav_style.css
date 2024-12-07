@@ -1,9 +1,12 @@
-body{
-    background-color:rgb(255, 255, 255);
+html, body {
+    height: 100%; /* Ensure the height spans the entire viewport */
+    margin: 0;    /* Remove default margins */
+    padding: 0;   /* Remove default padding */
 }
 
+
 nav {
-    background-color: #f0f0f0;
+    background-color: rgba(240, 240, 240, 0.8); /* Make the navbar transparent */
     border-bottom: 2px solid #ccc;
     padding: 10px 20px;
 }
@@ -32,4 +35,3 @@ nav ul li a:hover {
     background-color: #ddd;
     color: #000;
 }
-
