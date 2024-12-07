@@ -1,24 +1,185 @@
-<!-- last_decoded.html -->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>REGISTER_MENTOR</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('main_page') }}">Home</a></li>
-                <li><a href="{{ url_for('profile') }}">Profile</a></li>
-                <li><a href="{{ url_for('events') }}">Events</a></li>
-                <li><a href="{{ url_for('login') }}">Log in</a></li>
-                <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
-                <li><a href="{{ url_for('register_user') }}">Register user</a></li>
-            </ul>
-        </nav>
-        <div class="container">
-            <h1>REGISTER_MENTOR</h1>
-    
+        <title>REGISTER_MENTOR</title>\
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .form-footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main_page') }}">Home</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('login') }}">Log in</a></li>
+            <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
+            <li><a href="{{ url_for('register_user') }}">Register user</a></li>
+        </ul>
+    </nav>
+    <div class="registration-form">
+        <h2>Register as Mentor</h2>
+        <form action="/submit_registration" method="post">
+            <div class="form-group">
+                <label for="username">First and Last Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="age" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="occupation" id="occupation" name="occupation" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Nationality:</label>
+                <select id="role" name="role" required>
+                    <option value="">Selectează...</option>
+                    <option value="romanian">Romanian</option>
+                    <option value="ukrainian">Ukrainian</option>
+                    <option value="bengali">Bengali</option>
+                    <option value="indian">Indian</option>
+                    <option value="syrian">Syrian</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="role">County:</label>
+                <select id="role" name="role" required>
+                    <option value="">Selectează...</option>
+                    <option value="Alba">Alba</option>
+                    <option value="Arad">Arad</option>
+                    <option value="Arges">Argeș</option>
+                    <option value="Bacau">Bacău</option>
+                    <option value="Bihor">Bihor</option>
+                    <option value="Bistrita-Nasaud">Bistrița-Năsăud</option>
+                    <option value="Botosani">Botoșani</option>
+                    <option value="Braila">Brăila</option>
+                    <option value="Brasov">Brașov</option>
+                    <option value="Bucuresti">București</option>
+                    <option value="Buzau">Buzău</option>
+                    <option value="Calarasi">Călărași</option>
+                    <option value="Caras-Severin">Caraș-Severin</option>
+                    <option value="Cluj">Cluj</option>
+                    <option value="Constanta">Constanța</option>
+                    <option value="Covasna">Covasna</option>
+                    <option value="Dambovita">Dâmbovița</option>
+                    <option value="Dolj">Dolj</option>
+                    <option value="Galati">Galați</option>
+                    <option value="Giurgiu">Giurgiu</option>
+                    <option value="Gorj">Gorj</option>
+                    <option value="Harghita">Harghita</option>
+                    <option value="Hunedoara">Hunedoara</option>
+                    <option value="Ialomita">Ialomița</option>
+                    <option value="Iasi">Iași</option>
+                    <option value="Ilfov">Ilfov</option>
+                    <option value="Maramures">Maramureș</option>
+                    <option value="Mehedinti">Mehedinți</option>
+                    <option value="Mures">Mureș</option>
+                    <option value="Neamt">Neamț</option>
+                    <option value="Olt">Olt</option>
+                    <option value="Prahova">Prahova</option>
+                    <option value="Salaj">Sălaj</option>
+                    <option value="Satu-Mare">Satu Mare</option>
+                    <option value="Sibiu">Sibiu</option>
+                    <option value="Suceava">Suceava</option>
+                    <option value="Teleorman">Teleorman</option>
+                    <option value="Timis">Timiș</option>
+                    <option value="Tulcea">Tulcea</option>
+                    <option value="Valcea">Vâlcea</option>
+                    <option value="Vaslui">Vaslui</option>
+                    <option value="Vrancea">Vrancea</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="role">Field:</label>
+                <select id="role" name="role" required>
+                    <option value="">Selectează...</option>
+                    <option value="cultural_exchanges">Cultural Exchanges</option>
+                    <option value="nature">Nature Retreats</option>
+                    <option value="sports">Sports</option>
+                    <option value="arts_and_crafts">Arts and Crafts</option>
+                    <option value="just_fun">Just Fun</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Înregistrează-te</button>
+            </div>
+        </form>
+        <div class="form-footer">
+            <p>Ai deja un cont? <a href="/login">Autentifică-te</a></p>
         </div>
-    </body>
+    </div>
+</body>
 </html>
