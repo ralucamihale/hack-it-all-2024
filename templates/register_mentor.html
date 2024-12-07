@@ -82,7 +82,7 @@
     </nav>
     <div class="registration-form">
         <h2>Register as Mentor</h2>
-        <form action="/submit_registration" method="post">
+        <form id="mentorForm" method="post">
             <div class="form-group">
                 <label for="username">First and Last Name</label>
                 <input type="text" id="username" name="username" required>
@@ -93,82 +93,13 @@
             </div>
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="age" id="age" name="age" required>
+                <input type="number" id="age" name="age" required>
             </div>
             <div class="form-group">
                 <label for="occupation">Occupation</label>
-                <input type="occupation" id="occupation" name="occupation" required>
+                <input type="text" id="occupation" name="occupation" required>
             </div>
-            <div class="form-group">
-                <label for="role">Nationality:</label>
-                <select id="role" name="role" required>
-                    <option value="">Selectează...</option>
-                    <option value="romanian">Romanian</option>
-                    <option value="ukrainian">Ukrainian</option>
-                    <option value="bengali">Bengali</option>
-                    <option value="indian">Indian</option>
-                    <option value="syrian">Syrian</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="role">County:</label>
-                <select id="role" name="role" required>
-                    <option value="">Selectează...</option>
-                    <option value="Alba">Alba</option>
-                    <option value="Arad">Arad</option>
-                    <option value="Arges">Argeș</option>
-                    <option value="Bacau">Bacău</option>
-                    <option value="Bihor">Bihor</option>
-                    <option value="Bistrita-Nasaud">Bistrița-Năsăud</option>
-                    <option value="Botosani">Botoșani</option>
-                    <option value="Braila">Brăila</option>
-                    <option value="Brasov">Brașov</option>
-                    <option value="Bucuresti">București</option>
-                    <option value="Buzau">Buzău</option>
-                    <option value="Calarasi">Călărași</option>
-                    <option value="Caras-Severin">Caraș-Severin</option>
-                    <option value="Cluj">Cluj</option>
-                    <option value="Constanta">Constanța</option>
-                    <option value="Covasna">Covasna</option>
-                    <option value="Dambovita">Dâmbovița</option>
-                    <option value="Dolj">Dolj</option>
-                    <option value="Galati">Galați</option>
-                    <option value="Giurgiu">Giurgiu</option>
-                    <option value="Gorj">Gorj</option>
-                    <option value="Harghita">Harghita</option>
-                    <option value="Hunedoara">Hunedoara</option>
-                    <option value="Ialomita">Ialomița</option>
-                    <option value="Iasi">Iași</option>
-                    <option value="Ilfov">Ilfov</option>
-                    <option value="Maramures">Maramureș</option>
-                    <option value="Mehedinti">Mehedinți</option>
-                    <option value="Mures">Mureș</option>
-                    <option value="Neamt">Neamț</option>
-                    <option value="Olt">Olt</option>
-                    <option value="Prahova">Prahova</option>
-                    <option value="Salaj">Sălaj</option>
-                    <option value="Satu-Mare">Satu Mare</option>
-                    <option value="Sibiu">Sibiu</option>
-                    <option value="Suceava">Suceava</option>
-                    <option value="Teleorman">Teleorman</option>
-                    <option value="Timis">Timiș</option>
-                    <option value="Tulcea">Tulcea</option>
-                    <option value="Valcea">Vâlcea</option>
-                    <option value="Vaslui">Vaslui</option>
-                    <option value="Vrancea">Vrancea</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="role">Field:</label>
-                <select id="role" name="role" required>
-                    <option value="">Selectează...</option>
-                    <option value="cultural_exchanges">Cultural Exchanges</option>
-                    <option value="nature">Nature Retreats</option>
-                    <option value="sports">Sports</option>
-                    <option value="arts_and_crafts">Arts and Crafts</option>
-                    <option value="just_fun">Just Fun</option>
-                </select>
-            </div>
+            <!-- Nationality, County, Field Dropdowns -->
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
@@ -181,5 +112,49 @@
             <p>Ai deja un cont? <a href="/login">Autentifică-te</a></p>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select the form
+            const mentorForm = document.getElementById('mentorForm');
+
+            // Add an event listener for form submission
+            mentorForm.addEventListener('submit', function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Define the user role
+                const userRole = "mentor";
+
+                // Collect other form data (optional, based on server needs)
+                const formData = new FormData(mentorForm);
+                const data = {
+                    role: userRole,
+                    username: formData.get('username'),
+                    email: formData.get('email'),
+                    age: formData.get('age'),
+                    occupation: formData.get('occupation'),
+                    password: formData.get('password'),
+                    // Add more fields as needed
+                };
+
+                // Send the data to the server
+                fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Replace the page content with the server's response
+                    document.body.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
