@@ -1,7 +1,27 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask_sqlalchemy import SQLAlchemy
 import webbrowser
 
 app = Flask(__name__)
+
+# Configure the SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize the database
+db = SQLAlchemy(app)
+
+# Define a User model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    occupation = db.Column(db.String(100), nullable=False)
+    nationality = db.Column(db.String(50), nullable=False)
+    county = db.Column(db.String(50), nullable=False)
+    interests = db.Column(db.String(200), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
 
 # Dummy event data
 events_data = [
@@ -64,10 +84,72 @@ def create_event():
 def register_mentor():
     return render_template('register_mentor.html')
 
-@app.route('/register_user')
+@app.route('/register_user', methods=['GET', 'POST'])
 def register_user():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form['username']
+        email = request.form['email']
+        age = request.form['age']
+        occupation = request.form['occupation']
+        nationality = request.form['role']
+        county = request.form['role']
+        interests = request.form['role']
+        password = request.form['password']
+
+        # Save the user to the database
+        new_user = User(
+            username=username,
+            email=email,
+            age=age,
+            occupation=occupation,
+            nationality=nationality,
+            county=county,
+            interests=interests,
+            password=password
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for('main_page'))
+
     return render_template('register_user.html')
 
+@app.route('/submit_registration', methods=['POST'])
+def submit_registration():
+    # Retrieve form data
+    username = request.form['username']
+    email = request.form['email']
+    age = request.form['age']
+    occupation = request.form['occupation']
+    nationality = request.form['role']
+    county = request.form['role']
+    interests = request.form['interests']
+    password = request.form['password']
+
+    # Save the data to the database
+    new_user = User(
+        username=username,
+        email=email,
+        age=age,
+        occupation=occupation,
+        nationality=nationality,
+        county=county,
+        interests=interests,
+        password=password
+    )
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('main_page')) 
+
+@app.route('/users')
+def view_users():
+    try:
+        users = User.query.all()  # Query all users from the database
+        return render_template('view_users.html', users=users)
+    except Exception as e:
+        return f"An error occurred: {e}", 500
 
 
 def open_browser():
@@ -75,4 +157,5 @@ def open_browser():
 
 if __name__ == '__main__':
     open_browser()
+    # db.create_all()
     app.run(port=8080)
