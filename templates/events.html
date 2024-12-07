@@ -13,13 +13,13 @@
             <li><a href="{{ url_for('main_page') }}">Home</a></li>
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li>
-            <li><a href="{{ url_for('login') }}">Log in</a></li>
-            <li><a href="{{ url_for('register_mentor') }}">Register mentor</a></li>
-            <li><a href="{{ url_for('register_user') }}">Register user</a></li>
         </ul>
     </nav>
     <div class="events-container">
         <h1>Upcoming Events</h1>
+        <div class="create-event-container">
+            <a href="{{ url_for('create_event') }}" class="create-event-button">Create Event</a>
+        </div>
         <div class="events-list">
             {% for event in events %}
             <div class="event-card">
