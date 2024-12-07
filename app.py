@@ -3,6 +3,13 @@ import webbrowser
 
 app = Flask(__name__)
 
+# Dummy event data
+events_data = [
+    {"slug": "event1", "title": "Music Festival", "description": "A great outdoor music festival!"},
+    {"slug": "event2", "title": "Art Exhibition", "description": "Explore local and international art."},
+    {"slug": "event3", "title": "Tech Meetup", "description": "Discuss the latest trends in technology."},
+]
+
 @app.route('/')
 def main_page():
     return render_template('main_page.html')
@@ -17,7 +24,17 @@ def login():
 
 @app.route('/events')
 def events():
-    return render_template('events.html')
+    return render_template('events.html', events=events_data)
+
+
+@app.route('/events/<event_name>')
+def event_detail(event_name):
+    # Find the event by its slug
+    event = next((e for e in events_data if e['slug'] == event_name), None)
+    if event:
+        return render_template('event_detail.html', event=event)
+    else:
+        return "Event not found", 404
 
 @app.route('/register_mentor')
 def register_mentor():
