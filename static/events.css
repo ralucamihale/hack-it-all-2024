@@ -8,21 +8,40 @@
     margin: 0 auto; /* Center the container within the page */
     padding: 20px; /* Add padding for spacing */
     text-align: center; /* Center text content inside the container */
+    border: #003f7f;
+    /* border; */
 }
 
 .events-list {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping to new rows */
-    gap: 20px; /* Add space between cards */
-    justify-content: center; /* Center-align the cards */
+    flex-direction: row;
+    
+    justify-content: center; /* Center-align the cards horizontally */
+    align-content: flex-start; /* Align rows to the top */
+    margin-top: 20px; /* Optional top margin */
 }
 
 .event-card-link {
-    flex: 0 1 calc(33.33% - 10px); /* Increase card width by 10px */
-    display: block; /* Ensure the link behaves as a block container */
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Use the inherited text color */
+    flex: 0 1 calc(33.33% - 10px); /* Maintain the width for larger screens */
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
+
+/* Ensure proper alignment for smaller numbers of events */
+@media (max-width: 768px) {
+    .event-card-link {
+        flex: 0 1 calc(50% - 20px); /* Adjust for 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card-link {
+        flex: 0 1 100%; /* Full-width for small screens */
+    }
+}
+
 
 .event-card {
     display: flex;
@@ -34,6 +53,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .event-card:hover {
@@ -59,18 +80,6 @@
 
 .event-title:hover {
     color: #0056b3;
-}
-
-@media (max-width: 768px) {
-    .event-card-link {
-        flex: 0 1 calc(50% - 20px); /* 2 cards per row on medium screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .event-card-link {
-        flex: 0 1 100%; /* 1 card per row on small screens */
-    }
 }
 
 
