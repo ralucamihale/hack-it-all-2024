@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
         <title>REGISTER_USER</title>
         <style>
             body {
@@ -14,42 +14,6 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-            }
-    
-            /* Stilizarea barei de navigare */
-            nav {
-                background-color: #007bff;
-                color: white;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-            }
-            nav ul li {
-                margin: 0;
-            }
-            nav ul li a {
-                display: block;
-                padding: 15px 20px;
-                color: white;
-                text-decoration: none;
-                font-weight: bold;
-            }
-            nav ul li a:hover {
-                background-color: #0056b3;
-            }
-    
-            /* Pentru a crea spațiu sub bara de navigare */
-            .nav-placeholder {
-                height: 60px;
             }
     
             .registration-form {

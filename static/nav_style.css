@@ -6,7 +6,7 @@ html, body {
 }
 
 nav {
-    background-color: #007bff;
+    background-color: hsl(211, 100%, 50%);
     color: white;
     position: fixed;
     top: 0;
@@ -38,4 +38,10 @@ nav ul li a:hover {
 /* Pentru a crea spațiu sub bara de navigare */
 .nav-placeholder {
     height: 60px;
+}
+
+body::before {
+    content: '';
+    display: block;
+    height: 50px; /* Match the height of the navigation bar */
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Main Page Logged in</title>
+        <title>Main Page logged in mentor</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='main_page_logged_in_mentor.css') }}">
 
@@ -17,12 +17,44 @@
         </nav>
 
         <div class="container">
-            <h1>Main Page</h1>
+            <div class="title_container">
+                <h1 id="main_title">Find some people to help</h1>
+                <p id="main_paragraph">
+                    We are glad you connected as mentor
+                </p>
+            </div>
             <div class="button-container">
-                <a class="button" href="{{ url_for('find_people') }}">Find people to help</a>
+                <div class="button-container">
+                    <a class="button" href="{{ url_for('find_people') }}">Find People to help</a>
+                </div>
             </div>
         </div>
+        <style>
+            .title_container {
+                background-color: rgba(121, 144, 159, 0.716);
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 800px;
+                margin: 20px auto;
+                font-family: Arial, sans-serif;
+            }
 
+            #main_title {
+                font-size: 2em;
+                font-weight: bold;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            #main_paragraph {
+                font-size: 1.2em;
+                font-weight: 600;
+                margin-top: 20px;
+                line-height: 1.8;
+            }
+
+
+        </style>
         <script src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
 </html>
