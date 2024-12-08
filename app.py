@@ -139,6 +139,7 @@ def create_event():
             "title": event_data['title'],
             "description": event_data['description'],
             "tags": event_data['tags'],
+            # "picture": '../brasov.jpg',
         }
         events_data.append(new_event)
 
