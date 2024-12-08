@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
 
 body{
     background-image: url('https://egale.ca/wp-content/uploads/2023/07/pexels-fauxels-3184433-1920x1080-crop-scaled.webp');
@@ -39,3 +42,8 @@ body{
     background-color: #0056b3;
     transform: scale(1.05);
 }
+
+.highlight {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+  }

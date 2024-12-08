@@ -3,7 +3,79 @@
     <head>
         <title>PROFILE</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='find_mentor.css') }}">
+        <style>
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+                color: #4CAF50;
+            }
+    
+    
+                        form {
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+    
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+    
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+    
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+    
+            /* User Details Styles */
+            #mentorDetails {
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 15px;
+                background-color: #e8f5e9;
+                border: 1px solid #c8e6c9;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+    
+            #mentorDetails ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            #mentorDetails li {
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+            </style>
     </head>
     <body>
         <nav>
