@@ -18,7 +18,7 @@
     <div class="event-detail-container">
         <h1>{{ event['title'] }}</h1>
         <p>{{ event['description'] }}</p>
-        <img src="{{ event['picture'] }}" alt="{{ event['title'] }}" class="event-image">
+        <img src="{{ url_for('static', filename='images/' ~ event['picture']) }}" alt="{{ event['title'] }}" class="event-image">
         <a href="{{ url_for('events') }}" class="back-button">Back to Events</a>
     </div>
 </body>
