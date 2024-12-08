@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('userProfile', JSON.stringify(data));
 
+        let allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
+
+        allUsers.push(data);
+
+        localStorage.setItem('allUsers', JSON.stringify(allUsers));
+
 
         fetch('/', {
             method: 'POST',
@@ -45,17 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Select the form
     const userForm = document.getElementById('userForm');
 
-    // Add an event listener for form submission
     userForm.addEventListener('submit', function (event) {
-        // Prevent the default form submission
         event.preventDefault();
 
-        // Define the user role
-
-        // Collect other form data (optional, based on server needs)
         const formData = new FormData(userForm);
         const data = {
             role: "user",
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
             email: formData.get('email'),
             age: formData.get('age'),
             occupation: formData.get('occupation'),
-            occupation: formData.get('nationality'),
-            occupation: formData.get('county'),
-            occupation: formData.get('interests'),
+            nationality: formData.get('nationality'),
+            county: formData.get('county'),
+            interests: formData.get('interests'),
             password: formData.get('password'),
         };
 
@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.text())
         .then(data => {
-            // Replace the page content with the server's response
             document.body.innerHTML = data;
         })
         .catch(error => {

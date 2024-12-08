@@ -14,5 +14,24 @@
             </ul>
         </nav>
 
+      
+        <h1>All Users</h1>
+        <p id="usersParagraph">Loading users...</p>
+
+        <script>
+            // Retrieve the list of all users from localStorage
+            const allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
+
+            // Reference the paragraph element
+            const usersParagraph = document.getElementById('usersParagraph');
+
+            // Display all usernames in the paragraph
+            if (allUsers.length > 0) {
+                const usernames = allUsers.map(user => user.username).join(', ');
+                usersParagraph.textContent = usernames;
+            } else {
+                usersParagraph.textContent = "No users found.";
+            }
+        </script>
     </body>
 </html>
