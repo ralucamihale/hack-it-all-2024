@@ -2,8 +2,8 @@
     max-width: 900px;
     margin: 50px auto;
     padding: 30px;
-    background: #f9f9f9; /* Slightly off-white for a soft look */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    background: #f9f9f9;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     display: flex;
     gap: 30px;
@@ -20,13 +20,13 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 5px solid #007bff; /* Blue border for emphasis */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
-    transition: transform 0.3s ease; /* Add a hover effect */
+    border: 5px solid #007bff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
 }
 
 .profile-picture:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
 
 .profile-info {
@@ -36,12 +36,12 @@
 }
 
 h1 {
-    margin: 20px 0; /* Add spacing around the title */
-    font-size: 36px; /* Larger and more prominent title */
-    color: #000000; /* Blue color to match profile highlights */
+    margin: 20px 0;
+    font-size: 36px;
+    color: #000000;
     font-weight: bold;
-    text-align: center; /* Center-align the heading */
-    letter-spacing: 1px; /* Add some letter spacing for style */
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 .profile-data {

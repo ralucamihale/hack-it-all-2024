@@ -54,7 +54,6 @@
                 background-color: #45a049;
             }
     
-            /* User Details Styles */
             #mentorDetails {
                 max-width: 500px;
                 margin: 20px auto;
@@ -88,7 +87,6 @@
 
         <h1>Select a Mentor</h1>
         
-        <!-- Dropdown will be populated dynamically -->
         <form id="mentorForm" action="/direct_messages" method="GET">
             <label for="mentorSelect">Mentors:</label>
             <select id="mentorSelect" name="mentor" required>
@@ -97,7 +95,6 @@
             <button type="submit">Send Message</button>
         </form>
 
-        <!-- Message and hardcoded information will be displayed here -->
         <div id="mentorDetails" style="display: none; margin-top: 20px; color: green; font-weight: bold;">
             <p id="mentorMessage"></p>
             <ul id="mentorInfo">
@@ -111,23 +108,21 @@
         </div>
 
         <script>
-            // Retrieve the list of all users from localStorage
+
             const allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
 
-            // Reference the dropdown element and the message container
+
             const mentorSelect = document.getElementById('mentorSelect');
             const mentorDetails = document.getElementById('mentorDetails');
             const mentorMessage = document.getElementById('mentorMessage');
 
-            // Filter users with the role of "mentor"
             const mentors = allUsers.filter(user => user.role === "mentor");
 
-            // Populate the dropdown with mentor usernames
             if (mentors.length > 0) {
                 mentors.forEach(mentor => {
                     const option = document.createElement('option');
-                    option.value = mentor.username; // Set the value to the username
-                    option.textContent = mentor.username; // Display the username as the option text
+                    option.value = mentor.username;
+                    option.textContent = mentor.username;
                     mentorSelect.appendChild(option);
                 });
             } else {
@@ -138,28 +133,21 @@
             }
 
             document.addEventListener('DOMContentLoaded', function () {
-                // Add a change event listener to the dropdown
                 mentorSelect.addEventListener('change', function () {
                     if (mentorSelect.value) {
-                        // Display the mentor details if a mentor is selected
                         mentorMessage.textContent = `Mentor selected: ${mentorSelect.value}`;
                         mentorDetails.style.display = "block";
                     } else {
-                        // Hide the details if no mentor is selected
                         mentorDetails.style.display = "none";
                     }
                 });
 
-                // Select the form
                 const mentorForm = document.getElementById('mentorForm');
 
-                // Add a submit event listener
                 mentorForm.addEventListener('submit', function (event) {
-                    // Get the selected mentor's username
                     const selectedMentor = mentorSelect.value;
 
                     if (selectedMentor) {
-                        // Save the selected mentor's username to localStorage
                         localStorage.setItem('assignedMentor', selectedMentor);
                     }
                 });

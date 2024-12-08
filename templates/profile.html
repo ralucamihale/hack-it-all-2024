@@ -18,10 +18,9 @@
             <div class="profile-picture" style="background-image: url('https://via.placeholder.com/150');"></div>
 
             <div class="profile-name" id="profile-name">
-                John Doe <!-- This will be dynamic, based on user data -->
+                John Doe
             </div>
             
-            <!-- Profile Info Section -->
             <div class="profile-info">
                 <p id="profile-status"><span>Status:</span> Mentor</p>
                 <p id="email"><span>Email:</span> user@yahoo.com</p>
@@ -35,11 +34,9 @@
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Preia datele salvate
                 const profileData = JSON.parse(localStorage.getItem('userProfile'));
         
                 if (profileData) {
-                    // Actualizează câmpurile profilului
                     document.getElementById('profile-name').textContent = profileData.username || 'John Doe';
                     document.getElementById('profile-status').innerHTML = `<span>Status:</span> ${profileData.role || 'Unknown'}`;
                     document.getElementById('email').innerHTML = `<span>Email:</span> ${profileData.email || 'N/A'}`;

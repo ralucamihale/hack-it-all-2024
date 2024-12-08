@@ -1,7 +1,7 @@
 html, body {
-    height: 100%; /* Ensure the height spans the entire viewport */
-    margin: 0;    /* Remove default margins */
-    padding: 0;   /* Remove default padding */
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -35,7 +35,6 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
-/* Pentru a crea spațiu sub bara de navigare */
 .nav-placeholder {
     height: 60px;
 }
@@ -43,5 +42,5 @@ nav ul li a:hover {
 body::before {
     content: '';
     display: block;
-    height: 50px; /* Match the height of the navigation bar */
+    height: 50px;
 }

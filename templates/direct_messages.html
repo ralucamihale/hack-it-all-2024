@@ -132,12 +132,10 @@
             const messageInput = document.getElementById('messageInput');
             const sendMessageButton = document.getElementById('sendMessage');
     
-            // Retrieve assigned mentor and user profile from localStorage
             const assignedMentor = localStorage.getItem('assignedMentor') || 'User2';
             const assignedUser= localStorage.getItem('assignedUser') || 'User2';
-            const profileData = JSON.parse(localStorage.getItem('userProfile')) || { username: 'User1' }; // Fallback to 'User1'
+            const profileData = JSON.parse(localStorage.getItem('userProfile')) || { username: 'User1' };
     
-            // Update the chat header with the user's username and assigned mentor
 
             if(profileData.role == "mentor")
             {
@@ -148,14 +146,10 @@
                 chatHeader.textContent = `Direct Messages: ${profileData.username} & ${assignedMentor}`;
             }
 
-    
-            // Update all existing messages with class 'user1' to replace 'User1' with the username
             const user1Messages = document.querySelectorAll('.message.user1');
             user1Messages.forEach(message => {
                 message.textContent = message.textContent.replace('User1', profileData.username);
             });
-    
-            // Update all existing messages with class 'user2' to replace 'User2' with the mentor's name
             const user2Messages = document.querySelectorAll('.message.user2');
 
             if(profileData.role == "mentor")
@@ -172,23 +166,21 @@
             }
 
             
-    
-            // Add event listener to send a new message
             sendMessageButton.addEventListener('click', () => {
                 const messageText = messageInput.value.trim();
     
                 if (messageText) {
                     const newMessage = document.createElement('div');
-                    newMessage.classList.add('message', 'user2'); // Assuming "User2" (the mentor) sends the message
+                    newMessage.classList.add('message', 'user2');
                     newMessage.textContent = `${profileData.username}: ${messageText}`;
     
                     chatMessages.appendChild(newMessage);
-                    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
-                    messageInput.value = ''; // Clear input
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    messageInput.value = ''; 
                 }
             });
     
-            // Allow sending messages by pressing Enter
+
             messageInput.addEventListener('keypress', (event) => {
                 if (event.key === 'Enter') {
                     sendMessageButton.click();

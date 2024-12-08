@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='events.css') }}">
     <style>
-        /* Container pentru detalii eveniment */
         .event-detail-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -18,17 +17,15 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Imaginea evenimentului */
         .event-image {
             width: 100%;
             height: auto;
-            max-height: 400px; /* Dimensiune ajustată */
-            object-fit: contain; /* Asigură că imaginea nu este decupată */
+            max-height: 400px;
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: 20px;
         }
 
-        /* Titlul și descrierea */
         .event-details {
             text-align: center;
         }
@@ -45,11 +42,10 @@
             font-weight: 600;
             margin-bottom: 20px;
             line-height: 1.8;
-            white-space: pre-line; /* Permite newline din text */
+            white-space: pre-line;
             text-align: justify;
         }
 
-        /* Buton de întoarcere */
         .back-button {
             display: inline-block;
             padding: 15px 30px;
@@ -76,10 +72,7 @@
         </ul>
     </nav>
     <div class="event-detail-container">
-        <!-- Imagine a evenimentului ajustată -->
         <img src="{{ url_for('static', filename='images/' ~ event['picture']) }}" alt="{{ event['title'] }}" class="event-image">
-
-        <!-- Detalii despre eveniment -->
         <div class="event-details">
             <h1 class="event-title">{{ event['title'] }}</h1>
             <p class="event-description"> 
@@ -91,23 +84,19 @@
                 Bring your energy and enthusiasm, and let's make this day unforgettable!
             </p>
         </div>
-
-        <!-- Buton de întoarcere -->
         <a href="{{ url_for('events') }}" class="back-button">Back to Events</a>
         <a href="{{ url_for('events') }}" class="back-button" id="registerButton">Register for Event</a>    </div>
 </body>
 <script>
-    // Add event listener to the button
     document.addEventListener('DOMContentLoaded', function () {
         const registerButton = document.getElementById('registerButton');
         registerButton.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default navigation
-            alert('Successfully registered'); // Display the popup message
+            event.preventDefault();
+            alert('Successfully registered');
 
-            // Optionally redirect after showing the popup
             setTimeout(() => {
-                window.location.href = "{{ url_for('events') }}"; // Redirect after showing the message
-            }, 500); // Delay in milliseconds
+                window.location.href = "{{ url_for('events') }}";
+            }, 500);
         });
     });
 </script>

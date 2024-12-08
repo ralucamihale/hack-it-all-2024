@@ -77,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('allUsers', JSON.stringify(allUsers));
 
+        //localStorage.setItem('allUsers', JSON.stringify([]));
+
+
         fetch('/', {
             method: 'POST',
             headers: {

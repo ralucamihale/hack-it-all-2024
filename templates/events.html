@@ -20,7 +20,6 @@
                     const eventGroup = eventCard.getAttribute('data-group');
                     const eventHobby = eventCard.getAttribute('data-hobby');
     
-                    // Check if event matches selected group and hobby
                     const matchesGroup = selectedGroup === 'all' || eventGroup === selectedGroup;
                     const matchesHobby = selectedHobby === 'all' || eventHobby === selectedHobby;
     
@@ -32,7 +31,6 @@
                 });
             }
     
-            // Add event listeners to dropdowns
             groupDropdown.addEventListener('change', filterEvents);
             hobbyDropdown.addEventListener('change', filterEvents);
         });
@@ -50,7 +48,6 @@
     <div class="events-container">
         <h1>Upcoming Events</h1>
     
-        <!-- Filter Dropdowns -->
         <div class="filter-container">
             <label for="groupDropdown">Select your group:</label>
             <select id="groupDropdown">
@@ -59,7 +56,6 @@
                 <option value="physical_disability">Physical Disability</option>
                 <option value="immigrant">Immigrant</option>
                 <option value="low_income">Low Income</option>
-                <!-- <option value="volunteer">Volunteer</option> -->
             </select>
     
             <label for="hobbyDropdown">Select your hobby:</label>
@@ -69,13 +65,11 @@
                 <option value="sport">Sport</option>
                 <option value="music">Music</option>
                 <option value="nature">Nature</option>
-                <!-- <option value="games">Games</option> -->
                 <option value="travelling">Travelling</option>
             </select>
             <a href="{{ url_for('create_event') }}" class="button create-event-button">Create Event</a>
         </div>
-    
-        <!-- Events List -->
+
         <div class="events-list" id="eventsList">
             {% for event in events %}
             <a href="{{ url_for('event_detail', event_name=event['slug']) }}" class="event-link">
