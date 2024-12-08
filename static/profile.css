@@ -1,15 +1,14 @@
-
 .container {
     max-width: 900px;
     margin: 50px auto;
     padding: 30px;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9; /* Slightly off-white for a soft look */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
     border-radius: 12px;
     display: flex;
     gap: 30px;
-    align-items: flex-start; /* Align items to the top */
-    flex-wrap: wrap; /* Allow wrapping if the screen size is small */
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .profile-picture {
@@ -21,41 +20,52 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 4px solid #e0e0e0; /* Slightly lighter border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the profile picture */
+    border: 5px solid #007bff; /* Blue border for emphasis */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+    transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+.profile-picture:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .profile-info {
     flex-grow: 1;
     max-width: 500px;
+    padding: 10px;
 }
 
 h1 {
-    margin: 0;
-    font-size: 30px;
-    color: #333;
-    font-weight: 600;
+    margin: 20px 0; /* Add spacing around the title */
+    font-size: 36px; /* Larger and more prominent title */
+    color: #000000; /* Blue color to match profile highlights */
+    font-weight: bold;
+    text-align: center; /* Center-align the heading */
+    letter-spacing: 1px; /* Add some letter spacing for style */
 }
 
 .profile-data {
     margin-top: 20px;
-    padding-left: 10px;
 }
 
 .profile-data p {
-    margin: 12px 0;
+    margin: 10px 0;
     font-size: 18px;
     line-height: 1.6;
     color: #555;
+    display: flex; /* Align label and content */
+    gap: 5px;
 }
 
 .profile-data span {
     font-weight: bold;
-    color: #007bff; /* Blue color for labels */
+    color: #007bff;
+    min-width: 90px; /* Ensure labels are aligned */
+    display: inline-block;
 }
 
 .profile-data p:first-child {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: #333;
     margin-top: 0;
