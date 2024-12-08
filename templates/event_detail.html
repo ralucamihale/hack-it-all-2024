@@ -94,6 +94,21 @@
 
         <!-- Buton de întoarcere -->
         <a href="{{ url_for('events') }}" class="back-button">Back to Events</a>
-    </div>
+        <a href="{{ url_for('events') }}" class="back-button" id="registerButton">Register for Event</a>    </div>
 </body>
+<script>
+    // Add event listener to the button
+    document.addEventListener('DOMContentLoaded', function () {
+        const registerButton = document.getElementById('registerButton');
+        registerButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default navigation
+            alert('Successfully registered'); // Display the popup message
+
+            // Optionally redirect after showing the popup
+            setTimeout(() => {
+                window.location.href = "{{ url_for('events') }}"; // Redirect after showing the message
+            }, 500); // Delay in milliseconds
+        });
+    });
+</script>
 </html>
