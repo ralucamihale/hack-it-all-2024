@@ -3,7 +3,7 @@
     <head>
         <title>PROFILE</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='nav_style.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='find_people.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='find_user.css') }}">
     </head>
     <body>
         <nav>
@@ -14,24 +14,84 @@
             </ul>
         </nav>
 
-      
-        <h1>All Users</h1>
-        <p id="usersParagraph">Loading users...</p>
+        <h1>Select a user</h1>
+        
+        <!-- Dropdown will be populated dynamically -->
+        <form id="userForm" action="/direct_messages" method="GET">
+            <label for="userSelect">users:</label>
+            <select id="userSelect" name="user" required>
+                <option value="">-- Select a user --</option>
+            </select>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- Message and hardcoded information will be displayed here -->
+        <div id="userDetails" style="display: none; margin-top: 20px; color: green; font-weight: bold;">
+            <p id="userMessage"></p>
+            <ul id="userInfo">
+                <li>Email: celmaibunuser@yahoo.com</li>
+                <li>Age: 27</li>
+                <li>Occupation: Programmer</li>
+                <li>Nationality: Romanian</li>
+                <li>County: Dambovita</li>
+                <li>Interests: Hiking, Music</li>
+            </ul>
+        </div>
 
         <script>
             // Retrieve the list of all users from localStorage
             const allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
 
-            // Reference the paragraph element
-            const usersParagraph = document.getElementById('usersParagraph');
+            // Reference the dropdown element and the message container
+            const userSelect = document.getElementById('userSelect');
+            const userDetails = document.getElementById('userDetails');
+            const userMessage = document.getElementById('userMessage');
 
-            // Display all usernames in the paragraph
-            if (allUsers.length > 0) {
-                const usernames = allUsers.map(user => user.username).join(', ');
-                usersParagraph.textContent = usernames;
+            // Filter users with the role of "user"
+            const users = allUsers.filter(user => user.role === "user");
+
+            // Populate the dropdown with user usernames
+            if (users.length > 0) {
+                users.forEach(user => {
+                    const option = document.createElement('option');
+                    option.value = user.username; // Set the value to the username
+                    option.textContent = user.username; // Display the username as the option text
+                    userSelect.appendChild(option);
+                });
             } else {
-                usersParagraph.textContent = "No users found.";
+                const nousersOption = document.createElement('option');
+                nousersOption.value = "";
+                nousersOption.textContent = "No users available";
+                userSelect.appendChild(nousersOption);
             }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // Add a change event listener to the dropdown
+                userSelect.addEventListener('change', function () {
+                    if (userSelect.value) {
+                        // Display the user details if a user is selected
+                        userMessage.textContent = `user selected: ${userSelect.value}`;
+                        userDetails.style.display = "block";
+                    } else {
+                        // Hide the details if no user is selected
+                        userDetails.style.display = "none";
+                    }
+                });
+
+                // Select the form
+                const userForm = document.getElementById('userForm');
+
+                // Add a submit event listener
+                userForm.addEventListener('submit', function (event) {
+                    // Get the selected user's username
+                    const selecteduser = userSelect.value;
+
+                    if (selecteduser) {
+                        // Save the selected user's username to localStorage
+                        localStorage.setItem('assignedUser', selecteduser);
+                    }
+                });
+            });
         </script>
     </body>
 </html>

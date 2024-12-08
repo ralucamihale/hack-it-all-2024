@@ -71,6 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('userProfile', JSON.stringify(data));
 
+        let allUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
+
+        allUsers.push(data);
+
+        localStorage.setItem('allUsers', JSON.stringify(allUsers));
+
         fetch('/', {
             method: 'POST',
             headers: {
